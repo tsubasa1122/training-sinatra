@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - .:/app
-      - bundle:/app/vendor/bundle
+      - bundle:/usr/local/bundle
     command: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "9292"]
     ports:
       - '127.0.0.1:9292:9292'
@@ -28,5 +28,3 @@ volumes:
     driver: local
   db:
     driver: local
-
-
