@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+    command: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "9292"]
+    ports:
+      - '127.0.0.1:9292:9292'
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    ports:
+      - '5403:5432'
+    volumes:
+      - db:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: training-sinatra-development
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8'
+      TZ: 'Asia/Tokyo'
+
+volumes:
+  bundle:
+    driver: local
+  db:
+    driver: local
+
+
