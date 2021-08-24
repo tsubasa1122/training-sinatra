@@ -9,3 +9,4 @@ gem 'sinatra-activerecord'
 gem 'sinatra-reloader'
 gem 'puma'
 gem 'pg'
+gem "rake"
