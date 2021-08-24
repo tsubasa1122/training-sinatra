@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: utf8mb4
+  username: root
+  password: password
+
+development:
+  <<: *default
+  database: training-sinatra-development
+  host: localhost
+
+test:
+  <<: *default
+  database: MyApp_test
